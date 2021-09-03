@@ -1,0 +1,229 @@
+:root {
+    --color-primary: #FF6565;
+    --color-secondary: #071629;
+    --color-white: #ffff;
+    --color-gray--light: #979797;
+    --color-black: #060505;
+
+    --color-primary--hover: rgba(255, 101, 101, .8);
+
+    --border-radius-size: 2.2rem;
+
+    --font-size-xsmall: 1.2rem;
+    --font-size-small: 1.4rem;
+    --font-size-medium: 1.6rem;
+    --font-size-large: 2.4rem;
+    --font-size-xlarge: 3.1rem;
+}
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+li {
+    list-style: none;
+}
+
+h2 {
+    font-size: var(--font-size-large);
+    font-weight: bold;
+}
+
+.btn-cta {
+    padding: 1.2rem 2.7rem;
+    font-size: var(--font-size-xsmall);
+    font-weight: bold;
+    border: none;
+    border-radius: var(--border-radius-size);
+    background-color: var(--color-primary);
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+    color: var(--color-black); /** This color allows us to have more accessibility and to have a contrast ratio of 7.0*/
+    cursor: pointer;
+}
+
+.btn-cta:hover {
+    opacity: .9;
+}
+
+.hero-content,
+.header .header-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/** HEADER */
+.header {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+    z-index: 1;
+    top: 0;
+}
+
+.header .logo img {
+    width: 19rem;
+    margin-top: 1rem;
+}
+
+.navigation {
+    margin: 2rem 0;
+    display: none;
+}
+
+.navigation .navigation-list .navigation-item {
+    margin-bottom: 1.8rem;
+}
+.navigation .navigation-list .navigation-link {
+    font-size: var(--font-size-medium);
+    font-weight: bold;
+}
+
+.navigation .navigation-list .navigation-link:hover {
+    color: var(--color-primary);
+}
+
+/** Hamburger styles */
+
+.header .menu-icon {
+    display: block;
+    position: absolute;
+    top: 4rem;
+    left: 1rem;
+    padding: 1rem;
+    user-select: none;
+    cursor: pointer;
+}
+
+.header .menu-icon .navicon {
+    display: block;
+    position: relative;
+    width: .9rem;
+    height: .2rem;
+    background-color: var(--color-white);
+    transition: background .2s ease-out;
+}
+
+.header .menu-icon .navicon::before,
+.header .menu-icon .navicon::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 2.1rem;
+    height: 100%;
+    background-color: var(--color-white);
+    transition: all .2s ease-out;
+}
+
+.header .menu-icon .navicon::before {
+    top: .7rem;
+}
+.header .menu-icon .navicon::after {
+    top: -.7rem;
+}
+
+.header .menu-btn {
+    display: none;
+}
+
+.header .menu-btn:checked ~ .navigation {
+    display: block;
+}
+
+.header .menu-btn:checked + .menu-icon .navicon {
+    background: transparent;
+}
+
+.header .menu-btn:checked + .menu-icon .navicon::before {
+    transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked + .menu-icon .navicon::after {
+    transform: rotate(45deg);
+}
+
+.header .menu-btn:checked + .menu-icon .navicon::after,
+.header .menu-btn:checked + .menu-icon .navicon::before {
+    top: 0;
+}
+
+@media (min-width: 768px) {
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .header .menu-icon {
+        display: none;
+    }
+
+    .header .navigation {
+        display: block;
+    }
+
+    .header .navigation .navigation-list .navigation-item {
+        display: inline-block;
+    }
+
+    .navigation-list .navigation-item + .navigation-item {
+        margin-left: 3rem;
+    }
+}
+
+/** MAIN */
+.main {
+    position: relative;
+}
+.main .hero {
+    height: 100vh;
+    padding: 2rem;
+    background-image: url('/images/headphones_hero_1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.hero .hero-content {
+    display: flex;
+    height: 90%;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content .hero-details {
+    margin-top: 20rem;
+}
+
+.hero-content h1 {
+    font-size: var(--font-size-xlarge);
+    color: var(--color-white);
+    font-weight: bold;
+    margin-bottom: .9rem;
+}
+
+.hero-content h1 + p {
+    font-size: var(--font-size-medium);
+    color: var(--color-white);
+    font-weight: bold;
+    margin-bottom: 4rem;
+}
+
+.hero-content .content-text {
+    font-size: var(--font-size-small);
+    color: var(--color-white);
+    line-height: 2rem;
+}

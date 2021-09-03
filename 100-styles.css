@@ -1,0 +1,424 @@
+:root {
+    --color-primary: #FF6565;
+    --color-secondary: #071629;
+    --color-white: #ffff;
+    --color-gray--light: #979797;
+    --color-black: #060505;
+
+    --color-primary--hover: rgba(255, 101, 101, .8);
+
+    --border-radius-size: 2.2rem;
+
+    --font-size-xsmall: 1.2rem;
+    --font-size-small: 1.4rem;
+    --font-size-medium: 1.6rem;
+    --font-size-large: 2.4rem;
+    --font-size-xlarge: 3.1rem;
+
+    --font-size-xxlarge: 3.6rem;
+}
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+li {
+    list-style: none;
+}
+
+h2 {
+    font-size: var(--font-size-large);
+    font-weight: bold;
+}
+
+.btn-cta {
+    padding: 1.2rem 2.7rem;
+    font-size: var(--font-size-xsmall);
+    font-weight: bold;
+    border: none;
+    border-radius: var(--border-radius-size);
+    background-color: var(--color-primary);
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+    color: var(--color-black); /** This color allows us to have more accessibility and to have a contrast ratio of 7.0*/
+    cursor: pointer;
+}
+
+.btn-cta:hover {
+    opacity: .9;
+}
+
+/** HEADER */
+.header {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+    z-index: 1;
+    top: 0;
+}
+
+.header .logo img {
+    width: 19rem;
+    margin-top: 1rem;
+}
+
+.navigation {
+    margin: 2rem 0;
+    display: none;
+}
+
+.navigation .navigation-list .navigation-item {
+    margin-bottom: 1.8rem;
+}
+.navigation .navigation-list .navigation-link {
+    font-size: var(--font-size-medium);
+    font-weight: bold;
+}
+
+.navigation .navigation-list .navigation-link:hover {
+    color: var(--color-primary);
+}
+
+.hero-content,
+.about-content,
+.results-content,
+.contact-content,
+.footer-content,
+.header .header-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/** Hamburger styles */
+
+.header .menu-icon {
+    display: block;
+    position: absolute;
+    top: 4rem;
+    left: 1rem;
+    padding: 1rem;
+    user-select: none;
+    cursor: pointer;
+}
+
+.header .menu-icon .navicon {
+    display: block;
+    position: relative;
+    width: .9rem;
+    height: .2rem;
+    background-color: var(--color-white);
+    transition: background .2s ease-out;
+}
+
+.header .menu-icon .navicon::before,
+.header .menu-icon .navicon::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 2.1rem;
+    height: 100%;
+    background-color: var(--color-white);
+    transition: all .2s ease-out;
+}
+
+.header .menu-icon .navicon::before {
+    top: .7rem;
+}
+.header .menu-icon .navicon::after {
+    top: -.7rem;
+}
+
+.header .menu-btn {
+    display: none;
+}
+
+.header .menu-btn:checked ~ .navigation {
+    display: block;
+}
+
+.header .menu-btn:checked + .menu-icon .navicon {
+    background: transparent;
+}
+
+.header .menu-btn:checked + .menu-icon .navicon::before {
+    transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked + .menu-icon .navicon::after {
+    transform: rotate(45deg);
+}
+
+.header .menu-btn:checked + .menu-icon .navicon::after,
+.header .menu-btn:checked + .menu-icon .navicon::before {
+    top: 0;
+}
+
+@media (min-width: 768px) {
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .header .menu-icon {
+        display: none;
+    }
+
+    .header .navigation {
+        display: block;
+    }
+
+    .header .navigation .navigation-list .navigation-item {
+        display: inline-block;
+    }
+
+    .navigation-list .navigation-item + .navigation-item {
+        margin-left: 3rem;
+    }
+
+    .footer .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+/** MAIN */
+.main {
+    position: relative;
+}
+.main .hero {
+    height: 100vh;
+    padding: 2rem;
+    background-image: url('/images/headphones_hero_1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.hero .hero-content {
+    display: flex;
+    height: 90%;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content .hero-details {
+    margin-top: 20rem;
+}
+
+.hero-content h1 {
+    font-size: var(--font-size-xlarge);
+    color: var(--color-white);
+    font-weight: bold;
+    margin-bottom: .9rem;
+}
+
+.hero-content h1 + p {
+    font-size: var(--font-size-medium);
+    color: var(--color-white);
+    font-weight: bold;
+    margin-bottom: 4rem;
+}
+
+.hero-content .content-text {
+    font-size: var(--font-size-small);
+    color: var(--color-white);
+    line-height: 2rem;
+}
+
+/** ABOUT */
+.main .about, .main .results {
+    padding: 2rem;
+    text-align: center;
+}
+
+.about-details h2,
+.main .results h2,
+.contact h2 {
+    margin: 5rem 0;
+}
+
+.about-details p {
+    font-size: var(--font-size-medium);
+    margin-bottom: 5rem;
+}
+
+.about-content-cards {
+    max-width: 500px;
+    margin: 0 auto;
+}
+.about-content-cards {
+    padding: 3rem;
+}
+.about-content-cards figure {
+    display: inline-block;
+    width: 200px;
+    margin-bottom: 3rem;
+    padding: 2rem;
+}
+
+.about-content-cards figure img {
+    margin-top: 1rem;
+}
+
+.about-content-cards figure figcaption {
+    margin-top: 2rem;
+    font-size: var(--font-size-small);
+    font-weight: bold;
+}
+
+.about-content-cards figure p {
+    margin-top: 2rem;
+    font-size: var(--font-size-xsmall);
+    line-height: 1.8rem;
+}
+
+@media (min-width: 1000px) {
+    .about-content-cards, .content-list {
+        max-width: 1000px;
+    }
+
+    .results .content-list {
+        min-width: 1000px;
+    }
+}
+
+/** RESULTS */
+
+.main .results {
+    background-image: url('/images/headphones_hero_2.jpg');
+    background-size: cover;
+    background-position: bottom;
+}
+
+.main .results h2 {
+    color: var(--color-white);
+}
+
+.main .results p {
+    margin-bottom: 10rem;
+    font-size: var(--font-size-medium);
+    line-height: 2rem;
+    color: var(--color-white);
+}
+
+.results .content-list {
+    display: flex;
+    width: fit-content;
+    max-width: 500px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.content-list .pentagone {
+    position: relative;
+    width: 15rem;
+    margin: 3rem 3rem 10rem;
+    text-align: center;
+    border-width: 8rem 2rem 0;
+    border-style: solid;
+    border-color: var(--color-primary) transparent;
+}
+
+.content-list .pentagone::before {
+    content: "";
+    position: absolute;
+    top: -13rem;
+    left: -2rem;
+    border-width: 0 7.5rem 5rem;
+    border-style: solid;
+    border-color: transparent transparent var(--color-primary);
+}
+
+.content-list .pentagone span {
+    position: absolute;
+    color: var(--color-white);
+}
+
+.content-list .pentagone .percent {
+    top: -9rem;
+    left: 1rem;
+    font-size: var(--font-size-xxlarge);
+    font-weight: bold;
+}
+
+.content-list .pentagone .percent.-title {
+    top: -5rem;
+    left: 1rem;
+    font-size: var(--font-size-small);
+}
+
+/** CONTACT */
+
+.contact {
+    max-width: 320px;
+    margin: 0 auto 6rem;
+    text-align: center;
+    padding: 2rem;
+}
+
+.contact-content input {
+    width: 100%;
+    margin-bottom: 5rem;
+    padding-bottom: 1rem;
+    border: none;
+    border-bottom: 1px solid var(--color-gray--light);
+}
+
+.contact-content input::placeholder {
+    color: var(--color-black);
+    font-weight: bold;
+}
+
+/** FOOTER */
+
+.footer {
+    background-color: var(--color-secondary);
+    text-align: center;
+}
+
+.footer .footer-container {
+    padding: 3rem;
+}
+
+.footer .footer-content .logo img {
+    width: 15rem;
+}
+
+.footer .footer-content .social-media {
+    margin: 5rem 0;
+}
+
+.footer-content .social-media .social-media-item {
+    display: inline-block;
+}
+
+.social-media .social-media-item + .social-media-item {
+    margin-left: 1.5rem;
+}
+
+.social-media-item a img {
+    width: 3rem;
+}
+
+.footer .copyright {
+    font-size: var(--font-size-xsmall);
+    color: var(--color-gray--light);
+    margin-bottom: 3rem;
+}
